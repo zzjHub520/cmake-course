@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="xcpp">
+    <file>cmake_cpp.jpg</file>
+  </qresource>
+</RCC>
