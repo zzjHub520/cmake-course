@@ -1,0 +1,6 @@
+if ("${CMAKE_MINIMUM_REQUIRED_VERSION}" STREQUAL "")
+    cmake_minimum_required(export 3.22)
+endif ()
+project(blp_0613)
+add_subdirectory(export)
+add_subdirectory(findpackage)

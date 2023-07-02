@@ -1,0 +1,17 @@
+if ("${CMAKE_MINIMUM_REQUIRED_VERSION}" STREQUAL "")
+    cmake_minimum_required(VERSION 3.25)
+endif ()
+project(ch06_Install)
+
+#add_subdirectory(0602_install_FunDescAndCodePreparation)
+#add_subdirectory(0603_first_install_demo)
+#add_subdirectory(0604_install_dynamic_static)
+#add_subdirectory(0605_debug_release_different_path)
+#add_subdirectory(0606_install_file_type_permissions)
+#add_subdirectory(0607_install_git_filter_suffix)
+#add_subdirectory(0608_install_code_execute)
+#add_subdirectory(0609_install_group)
+#add_subdirectory(0611_install_export_package)
+#add_subdirectory(0612_find_package)
+#add_subdirectory(0613_multi_version_exist)
+
