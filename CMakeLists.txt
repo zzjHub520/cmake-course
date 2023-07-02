@@ -3,4 +3,4 @@ project(cmake-course)
 
 include(cmake/fmt.cmake)
 include(cmake/json_put.cmake)
-include(cmake/SimpleExportCompileCommads.cmake)
+#include(cmake/SimpleExportCompileCommads.cmake)
