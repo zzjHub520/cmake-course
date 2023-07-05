@@ -30,9 +30,32 @@ endif ()
 # XLOG_STATIC XLOG_EXPORTS
 target_compile_definitions(${PROJECT_NAME} PUBLIC XLOG_STATIC)
 
+# 默认为Debug
+if (CMAKE_BUILD_TYPE STREQUAL "")
+    set(CMAKE_BUILD_TYPE Debug)
+endif ()
+# 配置输出路径 Debug Release版本输出路径一致
+set(CONF_TYPES Debug Release RelWithDebInfo MinSizeRel)
+list(APPEND CONF_TYPES "")
 
+foreach (type IN LISTS CONF_TYPES)
+    set(conf "")
+    if (type)
+        string(TOUPPER _${type} conf)
+        message("conf = ${conf}")
+    endif ()
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+            RUNTIME_OUTPUT_DIRECTORY${conf} ${CMAKE_CURRENT_LIST_DIR}/../../bin # dll pdb exe 执行程序
+            LIBRARY_OUTPUT_DIRECTORY${conf} ${CMAKE_CURRENT_LIST_DIR}/../../lib # .so .dylib
+            ARCHIVE_OUTPUT_DIRECTORY${conf} ${CMAKE_CURRENT_LIST_DIR}/../../lib # .lib .a
+            PDB_OUTPUT_DIRECTORY${conf} ${CMAKE_CURRENT_LIST_DIR}/../../bin # .pdb 调试
+            )
+endforeach ()
 
-
+# 设置Debug添加 d 后缀
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        DEBUG_POSTFIX "d"
+        )
 
 
 
