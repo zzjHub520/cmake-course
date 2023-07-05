@@ -31,7 +31,7 @@
 #include <mutex>
 #include <string>
 #include <queue>
-#include <condition_variable>
+
 _XCPP_NAMESPACE_
 
 class XLogThread:public XWrite
