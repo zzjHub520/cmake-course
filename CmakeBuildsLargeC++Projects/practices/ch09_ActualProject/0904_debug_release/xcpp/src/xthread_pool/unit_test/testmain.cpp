@@ -22,41 +22,53 @@
 
 //////////////////////////////////////// COMMENT ///////////////////////////////////////////////
 
-#ifndef XLOG_THREAD_H
-#define XLOG_THREAD_H
+#include <iostream>
+#include "xthread_pool.h"
+#include "gtest/gtest.h"
+using namespace std;
 
-#include "xlog.h"
-#include <fstream>
-#include <thread>
-#include <mutex>
-#include <string>
-#include <queue>
+ 
+//namespace {
 
-_XCPP_NAMESPACE_
+// The fixture for testing class Foo.
+class XThreadPoolTest : public ::testing::Test {
+ protected:
+  // You can remove any or all of the following functions if their bodies would
+  // be empty.
 
-class XLogThread:public XWrite
-{
-public:
-	bool Init(const char* log_path,const char *filename);
-	int Write(const char* msg);
-	void Start();
-	void Stop();
-	XLogThread(){}
-	virtual ~XLogThread()
-	{
-		Stop();
-	}
-private:
-	void Run();
-	std::ofstream ofs_;
-	std::thread th_;
-	std::mutex mux_;
-	std::string log_path_;
-	std::queue<std::string> msgs_;
-	std::condition_variable cv_;
-	bool is_exit_ = false;
+  XThreadPoolTest() {
+     // You can do set-up work for each test here.
+  }
+
+  ~XThreadPoolTest() override {
+     // You can do clean-up work that doesn't throw exceptions here.
+  }
+
+  // If the constructor and destructor are not enough for setting up
+  // and cleaning up each test, you can define the following methods:
+  void SetUp() override {
+     // Code here will be called immediately after the constructor (right
+     // before each test).
+     cout<<"SetUp XThreadPoolTest"<<endl;
+  }
+
+  void TearDown() override {
+     // Code here will be called immediately after each test (right
+     // before the destructor).
+     cout<<"TearDown XThreadPoolTest"<<endl;
+  }
+  // Class members declared here can be used by all tests in the test suite
+  // for Foo.
 };
 
-_END_NAMESPACE_
+// Tests that the Foo::Bar() method does Abc. ²âÊÔ
+TEST_F(XThreadPoolTest, Init) {
+  EXPECT_EQ(7 * 6, 42);
+}
 
-#endif
+int main(int argc,char *argv[])
+{
+    cout<<"test xthread"<<endl;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
