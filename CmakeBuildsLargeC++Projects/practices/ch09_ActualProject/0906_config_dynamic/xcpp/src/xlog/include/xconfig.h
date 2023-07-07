@@ -1,6 +1,6 @@
 #ifndef XCONFIG_H
 #define XCONFIG_H
-//直接修改xconfig.h无效，需要修改xconfig.h.in
+//鐩存帴淇敼xconfig.h鏃犳晥锛岄渶瑕佷慨鏀箈config.h.in
 #define _END_NAMESPACE_ }
 #define _XCPP_NAMESPACE_ namespace xcpp {
 

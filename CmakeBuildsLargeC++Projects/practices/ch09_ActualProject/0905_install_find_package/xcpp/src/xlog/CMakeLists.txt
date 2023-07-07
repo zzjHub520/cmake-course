@@ -89,7 +89,7 @@ write_basic_package_version_file(
         VERSION ${version}
         COMPATIBILITY SameMajorVersion
 )
-install(FILES ${CMAKE_CURRENT_LIST_DIR}/../../lib/conf/${PROJECT_NAME}ConfigVersion.cmake
+install(FILES ${CMAKE_CURRENT_LIST_DIR}/../../lib/conf/${PROJECT_NAME}-${version}/${PROJECT_NAME}ConfigVersion.cmake
         DESTINATION lib/config/${PROJECT_NAME}-${version}
         )
 
