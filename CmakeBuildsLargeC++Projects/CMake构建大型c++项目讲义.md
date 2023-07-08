@@ -969,7 +969,14 @@ ccmake ./build
 
 ##  07 重构xlog的cmake完成cpp_libaray函数并导入线程池库30:52                    
 
-##  08 配置test_xlog项目完成linux上测试24:42                                    
+##  08 配置test_xlog项目完成linux上测试24:42     
+
+```
+find_package(Threads REQUIRED)
+target_link_libraries(YourTargetName Threads::Threads)
+```
+
+​                              
 
 ##  09 配置test_xlog可配置在vs上读取xlog静态库22:40                             
 
