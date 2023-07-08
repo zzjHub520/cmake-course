@@ -38,6 +38,8 @@ int main(int argc, const char* argv[]) {
 ```sh
 apt update
 apt install cmake -y
+# 卸载cmake
+sudo apt remove cmake --purge
 ```
 
 
