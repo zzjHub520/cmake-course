@@ -6,10 +6,52 @@ set(_XCPP_NAMESPACE_ "namespace xcpp {")
 set(RUNTIME_DIR ${CMAKE_CURRENT_LIST_DIR}/../bin)
 set(LIBRARY_DIR ${CMAKE_CURRENT_LIST_DIR}/../lib)
 
+# 获取当前目录下源码和头文件
+macro(get_src_include)
+    # 查找项目的源码和头文件
+    aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SRC)
+
+    # 加入.h文件到编译依赖
+    file(GLOB H_FILE ${CMAKE_CURRENT_LIST_DIR}/*.h)
+    # 对外接口的头文件
+    file(GLOB H_FILE_I ${CMAKE_CURRENT_LIST_DIR}/include/*.h)
+
+endmacro()
+
+######################################################################
+#### 编译执行程序 cpp_execute
+function(cpp_execute name)
+
+    message(STATUS "========== ${name} cpp_execute =============")
+    # 当前目录下源码和文件
+    get_src_include()
+
+    # 添加执行程序
+    add_executable(${name} ${SRC} ${H_FILE} ${H_FILE_I})
+
+    # 配置导入路径
+    target_link_directories(${name} PRIVATE ${LIBRARY_DIR})
+    if (NOT WIN32)
+        target_link_libraries(${name} pthread)
+    endif ()
+
+    # 链接依赖库
+    message("ARGC = ${ARGC} ${ARGV0} ${ARGV1}")
+    math(EXPR size "${ARGC} - 1")
+    if (size GREATER 0)
+        foreach (i RANGE 1 ${size})
+            message("target_link_libraries ${ARGV${i}}")
+            target_link_libraries(${name} ${ARGV${i}})
+        endforeach ()
+    endif ()
+
+
+    message(STATUS "============================================")
+
+endfunction()
+
 function(cpp_library name)
-
     message(STATUS "========== ${name} cpp_library =============")
-
     ############################################################
     # 配置项目是否是动态库
     # 用户指定xlog是动态库还是静态库
@@ -22,12 +64,7 @@ function(cpp_library name)
 
     ############################################################
     # 查找项目的源码和头文件
-    aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SRC)
-
-    # 加入.h文件到编译依赖
-    file(GLOB H_FILE ${CMAKE_CURRENT_LIST_DIR}/*.h)
-    # 对外接口的头文件
-    file(GLOB H_FILE_I ${CMAKE_CURRENT_LIST_DIR}/include/*.h)
+    get_src_include()
 
     ############################################################
     # 生成库
@@ -61,6 +98,10 @@ function(cpp_library name)
         set_target_properties(${name} PROPERTIES
                 COMPILE_FLAGS "-bigobj"
                 )
+    endif ()
+
+    if (NOT WIN32)
+        target_link_libraries(${name} pthread)
     endif ()
 
     ############################################################
