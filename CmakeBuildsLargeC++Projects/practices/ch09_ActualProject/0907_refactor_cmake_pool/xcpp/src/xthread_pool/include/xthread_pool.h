@@ -8,25 +8,25 @@
 #include <functional>
 #include "xlib.h"
 namespace xcpp
-{  
-    //Ïß³Ì³Ø 
+{
+    //çº¿ç¨‹æ± 
     class  XCPP_API XThreadPool
     {
     public:
-        //Æô¶¯ËùÓĞÏß³Ì
+        //å¯åŠ¨æ‰€æœ‰çº¿ç¨‹
         void Start(int num);
         void Stop();
 
         template<class F, class...Args>
-        // future »ñÈ¡·µ»ØÖµ
+        // future è·å–è¿”å›å€¼
         auto Exec(F&& f, Args&&...args)->
-            std::future<decltype(f(args...))>
+        std::future<decltype(f(args...))>
         {
             using Ret = decltype(f(args...));
             //auto f1 = std::bind(f, args...);
             //f1()
             auto task = std::make_shared<std::packaged_task<Ret()>>(
-                std::bind(f, args...));
+                    std::bind(f, args...));
             auto task_func = [task] {
                 (*task)();
             };
@@ -39,11 +39,11 @@ namespace xcpp
 
     private:
 
-        //Ïß³Ì³Øº¯Êı
+        //çº¿ç¨‹æ± å‡½æ•°
         void Run();
-        //ËùÓĞµÄÏß³Ì¾ä±ú
+        //æ‰€æœ‰çš„çº¿ç¨‹å¥æŸ„
         std::vector<std::shared_ptr<std::thread> >threads_;
-        //ÈÎÎñ¶ÓÁĞ
+        //ä»»åŠ¡é˜Ÿåˆ—
         std::queue<std::function<void()>> tasks_;
         std::mutex mux_;
 

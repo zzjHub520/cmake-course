@@ -3,42 +3,42 @@
 #include <thread>
 #include <memory>
 namespace xcpp
-{ 
+{
     class XThread
     {
         /**
-         * @brief  ¹¹Ôì, ±íÊ¾µ±Ç°ÔËĞĞµÄÏß³Ì£¬
-         *  		joinºÍdetachÔÚ²»ÄÜÔÚ¸Ã¶ÔÏóÉÏµ÷ÓÃ
-         * explicit ²»ÄÜÒşÊ½×ª»» ±ÈÈç th1 = th2 
+         * @brief  æ„é€ , è¡¨ç¤ºå½“å‰è¿è¡Œçš„çº¿ç¨‹ï¼Œ
+         *  		joinå’Œdetachåœ¨ä¸èƒ½åœ¨è¯¥å¯¹è±¡ä¸Šè°ƒç”¨
+         * explicit ä¸èƒ½éšå¼è½¬æ¢ æ¯”å¦‚ th1 = th2
         */
-        explicit XThread(); 
+        explicit XThread();
 
         /**
-         * @brief  µÈ´ıµ±Ç°Ïß³Ì½áÊø
+         * @brief  ç­‰å¾…å½“å‰çº¿ç¨‹ç»“æŸ
          */
         void Join();
 
         /**
-         * @brief  detach, ·ÖÀëÏß³ÌÓëthread¶ÔÏó
+         * @brief  detach, åˆ†ç¦»çº¿ç¨‹ä¸threadå¯¹è±¡
          */
         void Detach();
 
         /**
-         * @brief  »ñÈ¡µ±Ç°Ïß³Ìid.
+         * @brief  è·å–å½“å‰çº¿ç¨‹id.
          *
-         * @return µ±Ç°Ïß³Ìid
+         * @return å½“å‰çº¿ç¨‹id
          */
         std::thread::id id() const;
 
         /**
-         * @brief  Sleep µ±Ç°Ïß³ÌÊÍ·Åcpu 
-         *  
-         * @param millsecond ºÁÃë
+         * @brief  Sleep å½“å‰çº¿ç¨‹é‡Šæ”¾cpu
+         *
+         * @param millsecond æ¯«ç§’
          */
         static void Sleep(int ms);
-        
+
         /**
-         * @brief  ½»³öµ±Ç°Ïß³Ì¿ØÖÆÈ¨
+         * @brief  äº¤å‡ºå½“å‰çº¿ç¨‹æ§åˆ¶æƒ
          */
         static void Yield();
     private:

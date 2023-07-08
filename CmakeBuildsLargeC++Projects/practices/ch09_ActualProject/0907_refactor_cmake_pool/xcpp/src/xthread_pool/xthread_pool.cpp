@@ -4,52 +4,52 @@
 namespace xcpp
 {
 
-using namespace std;
-using namespace this_thread;
+    using namespace std;
+    using namespace this_thread;
 
-//œﬂ≥Ã≥ÿ∫Ø ˝
-void XThreadPool::Run()
-{ 
-    //cout << "Run " << get_id() << endl;
-    while(!is_exit_)
+//Á∫øÁ®ãÊ±†ÂáΩÊï∞
+    void XThreadPool::Run()
+    {
+        //cout << "Run " << get_id() << endl;
+        while(!is_exit_)
+        {
+            unique_lock<mutex> lock(mux_);
+            cv_.wait(lock, [this]
+            {
+                return is_exit_||!tasks_.empty();
+            });
+            while (!tasks_.empty())
+            {
+                tasks_.front()();
+                tasks_.pop();
+            }
+        }
+        //task();
+    }
+
+    void XThreadPool::Stop()
+    {
+        is_exit_ = true;
+        cv_.notify_all();
+        //unique_lock<mutex> lock(mux_);
+        //is_exit_ = true;
+        //numÂÄºÂà§Êñ≠ÔºåÁ°ÆÂÆöthreads_,ÊòØÂê¶Â∑≤ÁªèÂàùÂßãÂåñ
+        for(auto &th :threads_)
+        {
+            th->join();
+        }
+        unique_lock<mutex> lock(mux_);
+        threads_.clear();
+    }
+    void XThreadPool::Start(int num)
     {
         unique_lock<mutex> lock(mux_);
-        cv_.wait(lock, [this] 
+        //numÂÄºÂà§Êñ≠ÔºåÁ°ÆÂÆöthreads_,ÊòØÂê¶Â∑≤ÁªèÂàùÂßãÂåñ
+        for (int i = 0; i < num; i++)
         {
-            return is_exit_||!tasks_.empty();
-        });
-        while (!tasks_.empty())
-        {
-            tasks_.front()();
-            tasks_.pop();
+            auto th = make_shared<thread>(&XThreadPool::Run, this);
+            threads_.push_back(th);
         }
     }
-    //task();
-}
-
-void XThreadPool::Stop()
-{
-    is_exit_ = true;
-    cv_.notify_all();
-    //unique_lock<mutex> lock(mux_);
-    //is_exit_ = true;
-    //num÷µ≈–∂œ£¨»∑∂®threads_, «∑Ò“—æ≠≥ı ºªØ
-    for(auto &th :threads_)
-    {
-        th->join();
-    }
-    unique_lock<mutex> lock(mux_);
-    threads_.clear();
-}
-void XThreadPool::Start(int num)
-{
-    unique_lock<mutex> lock(mux_);
-    //num÷µ≈–∂œ£¨»∑∂®threads_, «∑Ò“—æ≠≥ı ºªØ
-    for (int i = 0; i < num; i++)
-    {
-        auto th = make_shared<thread>(&XThreadPool::Run, this);
-        threads_.push_back(th);
-    }
-}
 
 }
