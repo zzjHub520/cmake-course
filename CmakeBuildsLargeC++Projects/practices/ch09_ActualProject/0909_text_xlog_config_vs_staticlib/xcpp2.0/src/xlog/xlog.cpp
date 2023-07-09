@@ -1,26 +1,3 @@
-//////////////////////////////////  @°æÈ¨ËµÃ÷  //////////////////////////////////////////////////
-///						Jiedi(China nanjing)Ltd.                                    
-/// @°æÈ¨ËµÃ÷ ´úÂëºÍ¿Î³Ì°æÈ¨ÓĞÏÄ²Ü¿¡ËùÓµÓĞ²¢ÒÑ¾­ÉêÇëÖø×÷È¨£¬´Ë´úÂë¿ÉÓÃ×÷ÎªÑ§Ï°²Î¿¼²¢¿ÉÔÚÏîÄ¿ÖĞÊ¹ÓÃ£¬
-/// ¿Î³ÌÖĞÉæ¼°µ½µÄÆäËû¿ªÔ´Èí¼ş£¬Çë×ñÊØÆäÏàÓ¦µÄÊÚÈ¨
-/// ¿Î³ÌÔ´Âë²»¿ÉÒÔÖ±½Ó×ªÔØµ½¹«¿ªµÄ²©¿Í£¬»òÕßÆäËû¹²ÏíÆ½Ì¨£¬²»¿ÉÒÔÓÃÒÔÖÆ×÷ÔÚÏß¿Î³Ì¡£
-/// ¿Î³ÌÖĞÉæ¼°µ½µÄÆäËû¿ªÔ´Èí¼ş£¬Çë×ñÊØÆäÏàÓ¦µÄÊÚÈ¨  @@              
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////  Ô´ÂëËµÃ÷  //////////////////////////////////////////////////
-/// ÏîÄ¿Ãû³Æ: CMake¹¹½¨´óĞÍc++ÏîÄ¿
-/// ²©¿Í   : 			    http://blog.csdn.net/jiedichina
-/// ÌÚÑ¶¿ÎÌÃ			    https://jiedi.ke.qq.com/
-/// Ñ§ÀË				    ËÑË÷ ÏÄ²Ü¿¡
-/// ÀÏÏÄ¿ÎÌÃ			    http://cppds.com 
-/// CMakeÊÖ²á    	        http://cmake.org.cn
-/// £¡£¡£¡Çë¼ÓÈë¿Î³ÌqqÈº ¡¾296249312¡¿ÓëÍ¬Ñ§½»Á÷ 
-/// »¶Ó­¼ÓÏÄ²Ü¿¡ÀÏÊ¦µÄÎ¢ĞÅ£ºcppxcj
-///¼ÓÈëÀÏÏÄ¿ÎÌÃÈº¡¾296249312¡¿Ö±½ÓÁªÏµÈºÀï¿Í·şÏÂÔØ¿Î³Ì×ÊÁÏ
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////// ¿Î³Ì½»Á÷qqÈº296249312 //////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////// COMMENT ///////////////////////////////////////////////
 
 #include <sstream>
 #include "xlog_thread.h"
@@ -31,70 +8,70 @@
 #include "xlog.h"
 using namespace std;
 
-_XCPP_NAMESPACE_ 
+_XCPP_NAMESPACE_
 
-unique_ptr<XWrite> XLogMessage::write_;
+        unique_ptr<XWrite> XLogMessage::write_;
 static const char* LogLevelName[]{
-	"DEBUG",
-	"INFO",
-	"WARNING",
-	"ERROR",
-	"FATAL"
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "FATAL"
 };
-	
-//Ö»ÔÚ²âÊÔÊ±ÓÃ
+
+//åªåœ¨æµ‹è¯•æ—¶ç”¨
 bool CloseXLog()
 {
-	XLogMessage::set_write(nullptr);
-	return true;
+    XLogMessage::set_write(nullptr);
+    return true;
 }
 bool InitXLog(const char* appname, const char* logpath, const char* filename)
 {
-	cout << "Init XLog appname = " << appname <<" path = "<< logpath << endl;
-	unique_ptr<XLogThread> xt(new XLogThread());
-	if (!xt->Init(logpath, filename))
-		return false;
-	xt->Start();
-	XLogMessage::set_write(move(xt));
-	return true;
+    cout << "Init XLog appname = " << appname <<" path = "<< logpath << endl;
+    unique_ptr<XLogThread> xt(new XLogThread());
+    if (!xt->Init(logpath, filename))
+        return false;
+    xt->Start();
+    XLogMessage::set_write(move(xt));
+    return true;
 }
 XLogMessage::~XLogMessage()
 {
-	if(write_)
-		write_->Write(stream_.str().c_str());
+    if(write_)
+        write_->Write(stream_.str().c_str());
 }
 
 XLogMessage::XLogMessage(const char* file, int line, LogLevel level)
 {
-	auto time_now = chrono::system_clock::now();
-	time_t t = std::chrono::system_clock::to_time_t(time_now);
+    auto time_now = chrono::system_clock::now();
+    time_t t = std::chrono::system_clock::to_time_t(time_now);
 
-	auto duration_in_ms = chrono::duration_cast<chrono::milliseconds>(time_now.time_since_epoch());
+    auto duration_in_ms = chrono::duration_cast<chrono::milliseconds>(time_now.time_since_epoch());
 
-	tm tt;
-	//´øÊ±ÇøÊ±¼ä
-	#if _WIN32
-	::localtime_s(&tt, &t);
-	#else 
-	::localtime_r(&t, &tt);
-	#endif
-     
-	LogLevelName[1];
-	int le = static_cast<int>(level);
+    tm tt;
+    //å¸¦æ—¶åŒºæ—¶é—´
+#if _WIN32
+    ::localtime_s(&tt, &t);
+#else
+    ::localtime_r(&t, &tt);
+#endif
 
-	stream_ << "["<<LogLevelName[le] << ' ' << setfill('0')
-		<< setw(4) << tt.tm_year + 1900<<"-"
-		<< setw(2) << tt.tm_mon + 1 << "-"
-		<< setw(2) << tt.tm_mday
-		<< ' '
-		<< setw(2) << tt.tm_hour << ':'
-		<< setw(2) << tt.tm_min << ':'
-		<< setw(2) << tt.tm_sec << '.'
-		<< setw(6) << (int)((duration_in_ms % 1000).count())
-		<< ' '
-		<< setfill(' ') <<" (" << this_thread::get_id()<<")" << setfill('0')
-		<< ' '
-		<< file << ':' << line << "] ";
+    LogLevelName[1];
+    int le = static_cast<int>(level);
+
+    stream_ << "["<<LogLevelName[le] << ' ' << setfill('0')
+            << setw(4) << tt.tm_year + 1900<<"-"
+            << setw(2) << tt.tm_mon + 1 << "-"
+            << setw(2) << tt.tm_mday
+            << ' '
+            << setw(2) << tt.tm_hour << ':'
+            << setw(2) << tt.tm_min << ':'
+            << setw(2) << tt.tm_sec << '.'
+            << setw(6) << (int)((duration_in_ms % 1000).count())
+            << ' '
+            << setfill(' ') <<" (" << this_thread::get_id()<<")" << setfill('0')
+            << ' '
+            << file << ':' << line << "] ";
 
 }
 XLogMessage::XLogMessage()
