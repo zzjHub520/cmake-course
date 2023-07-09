@@ -1,0 +1,3 @@
+[INFO 2023-07-09 20:16:36.000396  (18232) D:\xcpp2.0\src\samples\test_xlog\test_xlog.cpp:33] ===== test xlog=====
+[INFO 2023-07-09 20:16:36.000397  (18232) D:\xcpp2.0\src\samples\test_xlog\test_xlog.cpp:34] cmake.org.cn
+[DEBUG 2023-07-09 20:16:36.000397  (18232) D:\xcpp2.0\src\samples\test_xlog\test_xlog.cpp:35] cppds.com
