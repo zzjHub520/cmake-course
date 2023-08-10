@@ -1,39 +1,3 @@
-//////////////////////////////////  @°æÈ¨ËµÃ÷  //////////////////////////////////////////////////
-///						Jiedi(China nanjing)Ltd.                                    
-/// @°æÈ¨ËµÃ÷ ´úÂëºÍ¿Î³Ì°æÈ¨ÓÐÏÄ²Ü¿¡ËùÓµÓÐ²¢ÒÑ¾­ÉêÇëÖø×÷È¨£¬´Ë´úÂë¿ÉÓÃ×÷ÎªÑ§Ï°²Î¿¼²¢¿ÉÔÚÏîÄ¿ÖÐÊ¹ÓÃ£¬
-/// ¿Î³ÌÖÐÉæ¼°µ½µÄÆäËû¿ªÔ´Èí¼þ£¬Çë×ñÊØÆäÏàÓ¦µÄÊÚÈ¨
-/// ¿Î³ÌÔ´Âë²»¿ÉÒÔÖ±½Ó×ªÔØµ½¹«¿ªµÄ²©¿Í£¬»òÕßÆäËû¹²ÏíÆ½Ì¨£¬²»¿ÉÒÔÓÃÒÔÖÆ×÷ÔÚÏß¿Î³Ì¡£
-/// ¿Î³ÌÖÐÉæ¼°µ½µÄÆäËû¿ªÔ´Èí¼þ£¬Çë×ñÊØÆäÏàÓ¦µÄÊÚÈ¨  @@              
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////  Ô´ÂëËµÃ÷  //////////////////////////////////////////////////
-/// ÏîÄ¿Ãû³Æ: CMake¹¹½¨´óÐÍc++ÏîÄ¿
-/// ²©¿Í   : 			    http://blog.csdn.net/jiedichina
-/// ÌÚÑ¶¿ÎÌÃ			    https://jiedi.ke.qq.com/
-/// Ñ§ÀË				    ËÑË÷ ÏÄ²Ü¿¡
-/// ÀÏÏÄ¿ÎÌÃ			    http://cppds.com 
-/// CMakeÊÖ²á    	        http://cmake.org.cn
-/// £¡£¡£¡Çë¼ÓÈë¿Î³ÌqqÈº ¡¾296249312¡¿ÓëÍ¬Ñ§½»Á÷ 
-/// »¶Ó­¼ÓÏÄ²Ü¿¡ÀÏÊ¦µÄÎ¢ÐÅ£ºcppxcj
-///¼ÓÈëÀÏÏÄ¿ÎÌÃÈº¡¾296249312¡¿Ö±½ÓÁªÏµÈºÀï¿Í·þÏÂÔØ¿Î³Ì×ÊÁÏ
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////// ¿Î³Ì½»Á÷qqÈº296249312 //////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////// COMMENT ///////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-/// @mainpage xcpp ¿ªÔ´¾«¼òc++¿â ÈÕÖ¾¡¢Ïß³Ì³Ø ¡¢ÍøÂç
-/// @brief
-/// - ÏîÄ¿ÓÐÏÄ²Ü¿¡ÀÏÊ¦·¢Æð£¬ËùÓÐµÄÑ§Ô±¶¼¿ÉÒÔ²ÎÓë´Ë¿ªÔ´ÏîÄ¿£¬×ö³ö¹±Ï×£¬²¢Ð´ÔÚÏîÄ¿¹±Ï×ÁÐ±íÖÐ
-/// - ÏîÄ¿»ùÓÚc++ 11 14 17 °æ±¾¿ª·¢£¨20 22 ÆÕ¼°ºóÒýÈë£©£¬Ê¹ÓÃc++ÐÂË¼Î¬¿ª·¢£¬Çø±ðÓÚc·ç¸ñc++
-/// - ÏîÄ¿¹¹½¨¹¤¾ß»ùÓÚcmake £¬ÏîÄ¿¿çÆ½Ì¨ÒÑ¾­Ö§³Öwindows linux£¨x86£© macos Android openharmony harmonyos 
-/// - ¼Æ»®Ö§³Ölinux(arm) ios
-/// 
-/// @author ÏÄ²Ü¿¡ £¨²ÎÓëÑ§Ô±¡£¡£¡££© 
-/// @version 1.0.1
-/// @date 2022Äê08ÔÂ10ÈÕ
-///////////////////////////////////////////////////////////////////////////
 #ifndef XLOG_H
 #define XLOG_H
 #include <iostream>
@@ -54,9 +18,9 @@
 /////////////////////////////////////////////////
 /**
  * @file xlog.h
- * @brief  ÈÕÖ¾½Ó¿ÚÀàÎÄ¼þ
+ * @brief  æ—¥å¿—æŽ¥å£ç±»æ–‡ä»¶
  *
- * Ê¹ÓÃËµÃ÷:
+ * ä½¿ç”¨è¯´æ˜Ž:
  * - 1
  * - 2
  * >- 2.1
@@ -66,20 +30,20 @@
  * LOGINFO<<"test log info "<<10.1;
  * @endcode
  * @author xiacaojun@qq.com
- * @copyright { °æÈ¨ÓÉÏÄ²Ü¿¡ºÍ¿ªÔ´¹±Ï×Õß¹²Í¬ÓµÓÐ£¬²»¿ÉÓÃÓÚÔÚÏß½ÌÓý£¬¿ÉÓÃÓÚÆäËûÉÌÒµÓ¦ÓÃ¡£ }
+ * @copyright { ç‰ˆæƒç”±å¤æ›¹ä¿Šå’Œå¼€æºè´¡çŒ®è€…å…±åŒæ‹¥æœ‰ï¼Œä¸å¯ç”¨äºŽåœ¨çº¿æ•™è‚²ï¼Œå¯ç”¨äºŽå…¶ä»–å•†ä¸šåº”ç”¨ã€‚ }
  */
  
 _XCPP_NAMESPACE_
 
-/** @brief ÈÕÖ¾¼¶±ð !<Éú³É±í¸ñ
+/** @brief æ—¥å¿—çº§åˆ« !<ç”Ÿæˆè¡¨æ ¼
 */
 enum class LogLevel
 {
-	DEBUG,			//!< µ÷ÊÔ¼¶±ðÈÕÖ¾
-	INFO,			//!< Õý³£²Ù×÷ÈÕÖ¾
-	WARNING,		//!< ¾¯¸æ
-	ERROR,			//!< ´íÎó
-	FATAL			//!< µ¼ÖÂÖÐ¶ÏµÄ´íÎó 
+	DEBUG,			//!< è°ƒè¯•çº§åˆ«æ—¥å¿—
+	INFO,			//!< æ­£å¸¸æ“ä½œæ—¥å¿—
+	WARNING,		//!< è­¦å‘Š
+	ERROR,			//!< é”™è¯¯
+	FATAL			//!< å¯¼è‡´ä¸­æ–­çš„é”™è¯¯ 
 };
 #define LOG(level) xcpp::XLogMessage(__FILE__, __LINE__, xcpp::LogLevel::level).stream()
 #define LOGDEBUG LOG(DEBUG)	
@@ -90,22 +54,22 @@ enum class LogLevel
 	
 
 /**
- * @brief  ³õÊ¼»¯ÈÕÖ¾Ä£¿é£¬»á¿ªÆôÈÕÖ¾Ð´ÈëÏß³Ì
- * @param appname	²úÉúÈÕÖ¾µÄÓ¦ÓÃÃû³Æ
- * @param logpath	ÈÕÖ¾µÄÐ´ÈëÂ·¾¶£¬ÒÔºóÖ§³ÖÍøÂçÂ·¾¶
- * @param filename ÈÕÖ¾Ð´ÈëµÄÎÄ¼þÃüÁî£¬ÒÔºóÖ§³Ö¸ñÊ½»¯Ãû³Æ£¬¹ö¶¯Éú³ÉÈÕÖ¾
- * @return ³õÊ¼»¯³É¹¦Ê§°Ü µ¥Ôª²âÊÔÓÃ
+ * @brief  åˆå§‹åŒ–æ—¥å¿—æ¨¡å—ï¼Œä¼šå¼€å¯æ—¥å¿—å†™å…¥çº¿ç¨‹
+ * @param appname	äº§ç”Ÿæ—¥å¿—çš„åº”ç”¨åç§°
+ * @param logpath	æ—¥å¿—çš„å†™å…¥è·¯å¾„ï¼Œä»¥åŽæ”¯æŒç½‘ç»œè·¯å¾„
+ * @param filename æ—¥å¿—å†™å…¥çš„æ–‡ä»¶å‘½ä»¤ï¼Œä»¥åŽæ”¯æŒæ ¼å¼åŒ–åç§°ï¼Œæ»šåŠ¨ç”Ÿæˆæ—¥å¿—
+ * @return åˆå§‹åŒ–æˆåŠŸå¤±è´¥ å•å…ƒæµ‹è¯•ç”¨
  */
 XCPP_API bool InitXLog(const char* appname,const char *logpath = DEFAULT_LOG_PATH, const char* filename = DEFAULT_LOG_FILENAME);
 	
 /**
- * @brief  ²âÊÔÓÃ£¬ÇåÀíÈÕÖ¾Ïß³ÌºÍ¶ÔÏó
- * @return ³É¹¦·µ»Øtrue 
+ * @brief  æµ‹è¯•ç”¨ï¼Œæ¸…ç†æ—¥å¿—çº¿ç¨‹å’Œå¯¹è±¡
+ * @return æˆåŠŸè¿”å›žtrue 
  */
 XCPP_API bool CloseXLog(); 
 
 /**
- * @brief ÈÕÖ¾Ð´Èë½Ó¿Ú
+ * @brief æ—¥å¿—å†™å…¥æŽ¥å£
  */
 class XCPP_API XWrite
 {
@@ -116,15 +80,15 @@ public:
 };
  
 /**
- * @brief ÈÕÖ¾ÏûÏ¢´¦ÀíÀà.
- * ½ÓÊÕÊäÈëµÄÈÕÖ¾ÏûÏ¢£¬·¢ËÍµ½Ð´ÈëÏß³Ì
+ * @brief æ—¥å¿—æ¶ˆæ¯å¤„ç†ç±».
+ * æŽ¥æ”¶è¾“å…¥çš„æ—¥å¿—æ¶ˆæ¯ï¼Œå‘é€åˆ°å†™å…¥çº¿ç¨‹
  */
 class XCPP_API XLogMessage
 { 
 public:
 	/**
-	 * @brief  ÊäÈëÁ÷
-	 * @return stringstream ×Ö·û´®Á÷£¬Ð´ÈëÆäÖÐ£¬¶ÔÏóÎö¹¹ÖÐ»á·¢ËÍ¸øÐ´ÈëÏß³Ì
+	 * @brief  è¾“å…¥æµ
+	 * @return stringstream å­—ç¬¦ä¸²æµï¼Œå†™å…¥å…¶ä¸­ï¼Œå¯¹è±¡æžæž„ä¸­ä¼šå‘é€ç»™å†™å…¥çº¿ç¨‹
 	 */
 	std::stringstream& stream()
 	{
@@ -133,12 +97,12 @@ public:
 	XLogMessage();
 
 	/**
-	 * @brief ¹¹Ôìº¯Êý.
+	 * @brief æž„é€ å‡½æ•°.
 	 * @brief Constructor.
 	 *
-	 * @param[in] file		ÈÕÖ¾²úÉúËùÔÚÎÄ¼þÃû
-	 * @param[in] line		ÈÕÖ¾²úÉúÐÐºÅ
-	 * @param[in] level		ÈÕÖ¾¼¶±ð
+	 * @param[in] file		æ—¥å¿—äº§ç”Ÿæ‰€åœ¨æ–‡ä»¶å
+	 * @param[in] line		æ—¥å¿—äº§ç”Ÿè¡Œå·
+	 * @param[in] level		æ—¥å¿—çº§åˆ«
 	 */
 	XLogMessage(const char* file, int line, LogLevel level);
 	~XLogMessage() ;
@@ -146,12 +110,12 @@ public:
 	void set_name(const char* name) { name_ = name; }
 private:
 	/**
-	 * ÈÕÖ¾×Ö·û´®Á÷
+	 * æ—¥å¿—å­—ç¬¦ä¸²æµ
 	 */
 	std::stringstream stream_;
 	
 	/**
-	 * ×¢ÈëµÄÐ´´¦Àí¶ÔÏó
+	 * æ³¨å…¥çš„å†™å¤„ç†å¯¹è±¡
 	 */
 	static std::unique_ptr<XWrite> write_;
 
